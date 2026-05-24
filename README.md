@@ -1,2 +1,2 @@
 # house-prices-regression
-End-toend machine learning project for predicting house prices using the Ames Housing dataset.
+End-to-end machine learning project for predicting house prices using the Ames Housing dataset.
