@@ -1,6 +1,6 @@
 # house-prices-regression
 
-## 1. Description
+## 1. Project Description
 
 This project is my implementation of a machine learning workflow for predicting house sale prices using the Ames Housing dataset.
 
@@ -14,7 +14,7 @@ After comparing multiple models with cross-validation, Gradient Boosting was sel
 
 The final model, metrics and test predictions were saved as artifacts so the results can be reviewed and the project can be extended later.
 
-## 2. Technologies and Tools
+## 2. Project Stack
 
 This project was developed using Python in Jupyter Notebook, with Visual Studio Code as the development environment and Git/GitHub for version control.
 
