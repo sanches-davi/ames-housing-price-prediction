@@ -114,3 +114,61 @@ The main steps were:
 12. Save the final model, evaluation metrics and test predictions as project artifacts.
 
 Each step is explained in detail inside the notebooks, including the reasoning behind the main decisions made during the project.
+
+## 5. Dataset Overview
+
+The dataset used in this project is the Ames Housing dataset, which contains detailed information about residential properties sold in Ames, Iowa.
+
+The original dataset has **2,930 rows and 82 columns**. The target variable is **SalePrice**, which represents the final sale price of each house. The remaining variables describe different property characteristics, such as lot area, living area, overall quality, year built, garage information, basement features, neighborhood and other structural attributes.
+
+In the initial data inspection, no duplicated rows were found and the target variable did not contain missing values. However, several explanatory variables had missing values. In this dataset, some of these missing values do not necessarily mean data errors; in many cases, they indicate the absence of a specific property feature, such as no garage, no basement, no fireplace or no masonry veneer.
+
+The dataset contains both numerical and categorical variables, which makes preprocessing an important part of the project. Numerical features require imputation and scaling, while categorical features require missing value treatment and encoding before being used by machine learning models.
+
+<div align="center">
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Dataset</td>
+    <td>Ames Housing</td>
+  </tr>
+  <tr>
+    <td>Rows</td>
+    <td>2,930</td>
+  </tr>
+  <tr>
+    <td>Columns</td>
+    <td>82</td>
+  </tr>
+  <tr>
+    <td>Target variable</td>
+    <td><code>SalePrice</code></td>
+  </tr>
+  <tr>
+    <td>Problem type</td>
+    <td>Supervised regression</td>
+  </tr>
+  <tr>
+    <td>Numerical columns</td>
+    <td>39, including the target variable</td>
+  </tr>
+  <tr>
+    <td>Categorical columns</td>
+    <td>43</td>
+  </tr>
+  <tr>
+    <td>Duplicated rows</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Missing values in target</td>
+    <td>0</td>
+  </tr>
+</table>
+
+</div>
+
