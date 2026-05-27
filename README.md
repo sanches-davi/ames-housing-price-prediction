@@ -172,3 +172,20 @@ The dataset contains both numerical and categorical variables, which makes prepr
 
 </div>
 
+## 6. Exploratory Data Analysis and Business Insights
+
+The exploratory data analysis was performed only on the training data to avoid data leakage.  
+The main goal of this step was to understand the behavior of the target variable, identify relevant relationships between features and **SalePrice**, analyze missing values and detect potential outliers before the modelling stage.
+
+### 6.1 Target Variable Analysis
+
+The target variable **SalePrice** is right-skewed, meaning that most houses are concentrated in lower and mid-price ranges, while a smaller number of properties have much higher sale prices.
+
+This behavior is common in real estate data, where expensive properties can pull the average price upward. Because of this skewness, a log transformation was considered as a possible strategy during the modeling stage.
+
+<p align="center">
+  <img src="images/02-saleprice_distribution.png" alt="SalePrice Distribution Histogram" width="100%">
+</p>
+
+**Main insight:**  
+The distribution shows that house prices are not evenly distributed. Most properties are concentrated below the higher price ranges, while a few expensive houses create a long right tail. This means that evaluation metrics should be interpreted carefully, since high-value properties can have a stronger impact on model errors.
