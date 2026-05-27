@@ -146,7 +146,7 @@ The dataset contains both numerical and categorical variables, which makes prepr
   </tr>
   <tr>
     <td>Target variable</td>
-    <td><code>SalePrice</code></td>
+    <td>SalePrice</td>
   </tr>
   <tr>
     <td>Problem type</td>
