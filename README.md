@@ -259,3 +259,34 @@ In many Ames Housing features, missing values indicate that the property does no
 
 ---
 
+### 6.5 Outliers Analysis
+
+Outliers were identified in important numerical variables such as SalePrice, Gr Liv Area, Lot Area, Total Bsmt SF and Garage Area.
+
+However, not every outlier should be removed. In real estate data, expensive houses, large lots or properties with unusual characteristics may still represent valid observations.
+
+<p align="center">
+  <img src="images/09-Outliers_grLivArea_vs_SalePrice.png" alt="Outliers" width="100%">
+</p>
+
+**Main insights:**
+
+- High values in SalePrice may represent legitimate expensive properties.
+- Some extreme values in Gr Liv Area may have a strong impact on regression models.
+- Outliers were analyzed carefully instead of being removed automatically.
+- Final outlier treatment decisions were made later during the modelling notebook, using only the training set.
+
+---
+
+### 6.6 Main Business Insights
+
+Based on the exploratory analysis, the most important business insights were:
+
+- Property quality is one of the strongest drivers of sale price.
+- Larger houses tend to be more expensive, especially when considering above-ground living area and total property size.
+- Location has a strong impact on price, as different neighborhoods show clear differences in sale value.
+- Garage capacity, basement area, number of bathrooms and construction year are relevant features for price estimation.
+- Missing values can contain useful business information, especially when they indicate the absence of a feature.
+- Outliers should be handled carefully because some extreme properties may be valid and meaningful in the real estate market.
+
+These insights guided the next steps of the project, especially feature engineering, preprocessing and model selection.
