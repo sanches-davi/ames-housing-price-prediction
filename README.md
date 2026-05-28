@@ -194,9 +194,9 @@ The distribution shows that house prices are not evenly distributed. Most proper
 
 ### 6.2 Numerical Features Analysis
 
-The numerical analysis showed that some features have a strong relationship with `SalePrice`.
+The numerical analysis showed that some features have a strong relationship with SalePrice.
 
-The most relevant numerical variables were related to property quality, size, garage capacity, basement area, number of bathrooms and construction year. Among them, `Overall Qual` and `Gr Liv Area` stood out as two of the strongest price drivers.
+The most relevant numerical variables were related to property quality, size, garage capacity, basement area, number of bathrooms and construction year. Among them, Overall Qual and Gr Liv Area stood out as two of the strongest price drivers.
 
 <p align="center">
   <img src="images/03-correlated_features_with_SalePrice.png" alt="Top Correlated Features with SalePrice" width="100%">
@@ -215,3 +215,27 @@ The most relevant numerical variables were related to property quality, size, ga
 
 ---
 
+### 6.3 Categorical Features Analysis
+
+Categorical variables also showed important patterns in relation to house prices. Features related to location, material quality, kitchen quality, basement quality and garage type created clear differences in sale prices across categories.
+
+<p align="center">
+  <img src="images/05-Boxplot_Neighbourhood_with_SalePrice.png" alt="Boxplot Neighbourhood vs SalePrice" width="100%">
+</p>
+
+<p align="center">
+  <img src="images/06-Boxplot_Kitchen_with_SalePrice.png" alt="Boxplot KitchenQual vs SalePrice" width="100%">
+</p>
+
+<p align="center">
+  <img src="images/07-Boxplot_Garage_with_SalePrice.png" alt="Boxplot Garage Type vs SalePrice" width="100%">
+</p>
+
+**Main insights:**
+
+- Neighborhood appears to be strongly related to SalePrice, confirming that location plays an important role in real estate pricing.
+- Quality-related categorical features such as Kitchen Qual, Exter Qual and Bsmt Qual showed clear price differences across categories.
+- Garage-related categories also seem relevant, especially when comparing houses with attached garages to houses without garage information.
+- These variables need to be properly encoded before being used in machine learning models.
+
+---
