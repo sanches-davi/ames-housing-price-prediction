@@ -189,3 +189,29 @@ This behavior is common in real estate data, where expensive properties can pull
 
 **Main insight:**  
 The distribution shows that house prices are not evenly distributed. Most properties are concentrated below the higher price ranges, while a few expensive houses create a long right tail. This means that evaluation metrics should be interpreted carefully, since high-value properties can have a stronger impact on model errors.
+
+---
+
+### 6.2 Numerical Features Analysis
+
+The numerical analysis showed that some features have a strong relationship with `SalePrice`.
+
+The most relevant numerical variables were related to property quality, size, garage capacity, basement area, number of bathrooms and construction year. Among them, `Overall Qual` and `Gr Liv Area` stood out as two of the strongest price drivers.
+
+<p align="center">
+  <img src="images/03-correlated_features_with_SalePrice.png" alt="Top Correlated Features with SalePrice" width="100%">
+</p>
+
+<p align="center">
+  <img src="images/04-scatterplot-grdlivingarea-SalePrice.png" alt="Scatterplot Ground Living Area vs SalePrice" width="100%">
+</p>
+
+**Main insights:**
+
+- Overall Qual has one of the strongest relationships with SalePrice, showing that the general quality of the property is a major factor in pricing.
+- Gr Liv Area is also strongly related to price, suggesting that larger living areas tend to increase property value.
+- Garage-related variables, basement area and bathroom-related features also showed relevant influence.
+- Some numerical variables are highly correlated with each other, which is important to consider during modelling.
+
+---
+
