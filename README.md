@@ -239,3 +239,23 @@ Categorical variables also showed important patterns in relation to house prices
 - These variables need to be properly encoded before being used in machine learning models.
 
 ---
+
+### 6.4 Missing Values Analysis
+
+The dataset contains several missing values, but not all of them represent data quality problems.
+
+In many Ames Housing features, missing values indicate that the property does not have a specific characteristic. For example, missing values in garage, basement, fireplace, pool or fence-related variables may simply mean that the house does not have that feature.
+
+<p align="center">
+  <img src="images/08-Missing_Values_bar_chart.png" alt="Missing Values Bar Chart" width="100%">
+</p>
+
+**Main insights:**
+
+- Missing values in features such as Fireplace Qu, garage-related columns and basement-related columns likely represent absence of those structures.
+- These values should not be removed automatically.
+- Some numerical missing values can be filled with zero when they represent absence, while others may require statistical imputation.
+- Understanding the meaning of missing values was important for building a more consistent preprocessing strategy.
+
+---
+
