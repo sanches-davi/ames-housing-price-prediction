@@ -8,6 +8,8 @@
   A machine learning regression project focused on predicting house sale prices using the Ames Housing dataset.
 </p>
 
+---
+
 ## 1. Project Description
 
 This project is my implementation of a machine learning workflow for predicting house sale prices using the Ames Housing dataset.
@@ -22,6 +24,8 @@ After comparing multiple models with cross-validation, Gradient Boosting was sel
 
 The final model, metrics and test predictions were saved as artifacts so the results can be reviewed and the project can be extended later.
 
+---
+
 ## 2. Project Stack
 
 This project was developed using Python in Jupyter Notebook, with Visual Studio Code as the development environment and Git/GitHub for version control.
@@ -34,6 +38,8 @@ The main libraries used were:
 - **Joblib** for saving the final trained model.
 
 The regression models tested included Ridge Regression, ElasticNet, Random Forest, Extra Trees and Gradient Boosting Regressor.
+
+---
 
 ## 3. Business Problem and Project Objective
 
@@ -94,6 +100,8 @@ However, the model should be used as a decision-support tool, not as a definitiv
 
 Even with these limitations, the project demonstrates how exploratory data analysis, feature engineering and machine learning can be combined to build a strong and interpretable regression workflow for house price prediction.
 
+---
+
 ## 4. Solution Pipeline
 
 The project followed a structured machine learning workflow inspired by the CRISP-DM framework.
@@ -114,6 +122,8 @@ The main steps were:
 12. Save the final model, evaluation metrics and test predictions as project artifacts.
 
 Each step is explained in detail inside the notebooks, including the reasoning behind the main decisions made during the project.
+
+---
 
 ## 5. Dataset Overview
 
@@ -172,6 +182,8 @@ The dataset contains both numerical and categorical variables, which makes prepr
 
 </div>
 
+---
+
 ## 6. Exploratory Data Analysis and Business Insights
 
 The exploratory data analysis was performed only on the training data to avoid data leakage.  
@@ -189,8 +201,6 @@ This behavior is common in real estate data, where expensive properties can pull
 
 **Main insight:**  
 The distribution shows that house prices are not evenly distributed. Most properties are concentrated below the higher price ranges, while a few expensive houses create a long right tail. This means that evaluation metrics should be interpreted carefully, since high-value properties can have a stronger impact on model errors.
-
----
 
 ### 6.2 Numerical Features Analysis
 
@@ -212,8 +222,6 @@ The most relevant numerical variables were related to property quality, size, ga
 - Gr Liv Area is also strongly related to price, suggesting that larger living areas tend to increase property value.
 - Garage-related variables, basement area and bathroom-related features also showed relevant influence.
 - Some numerical variables are highly correlated with each other, which is important to consider during modelling.
-
----
 
 ### 6.3 Categorical Features Analysis
 
@@ -238,8 +246,6 @@ Categorical variables also showed important patterns in relation to house prices
 - Garage-related categories also seem relevant, especially when comparing houses with attached garages to houses without garage information.
 - These variables need to be properly encoded before being used in machine learning models.
 
----
-
 ### 6.4 Missing Values Analysis
 
 The dataset contains several missing values, but not all of them represent data quality problems.
@@ -256,8 +262,6 @@ In many Ames Housing features, missing values indicate that the property does no
 - These values should not be removed automatically.
 - Some numerical missing values can be filled with zero when they represent absence, while others may require statistical imputation.
 - Understanding the meaning of missing values was important for building a more consistent preprocessing strategy.
-
----
 
 ### 6.5 Outliers Analysis
 
@@ -276,8 +280,6 @@ However, not every outlier should be removed. In real estate data, expensive hou
 - Outliers were analyzed carefully instead of being removed automatically.
 - Final outlier treatment decisions were made later during the modelling notebook, using only the training set.
 
----
-
 ### 6.6 Main Business Insights
 
 Based on the exploratory analysis, the most important business insights were:
@@ -290,3 +292,86 @@ Based on the exploratory analysis, the most important business insights were:
 - Outliers should be handled carefully because some extreme properties may be valid and meaningful in the real estate market.
 
 These insights guided the next steps of the project, especially feature engineering, preprocessing and model selection.
+
+---
+
+## 7. Machine Learning Modeling
+
+After completing the exploratory data analysis, the next step was to build a machine learning pipeline capable of predicting house sale prices.
+
+The modeling stage followed the same logic defined during the EDA: avoid data leakage, preserve the meaning of missing values, apply business-oriented feature engineering and evaluate models using consistent validation strategies.
+
+The main goal of this step was to create a predictive model that could estimate **SalePrice** based on property characteristics from the Ames Housing dataset.
+
+### 7.1 Data Preparation
+
+Before training the models, the dataset was split into training and test sets.
+
+The test set was kept untouched until the final evaluation. This approach was used to simulate how the model would perform on unseen data.
+
+Identifier columns such as **Order** and **PID** were removed because they do not provide meaningful predictive information.
+
+Based on the EDA, a small number of extreme observations with very large **Gr Liv Area** values were removed from the training set only. The test set was not modified.
+
+**Main insight:**  
+The data preparation step was designed to keep the final evaluation realistic and avoid using information from the test set during model development.
+
+### 7.2 Feature Engineering
+
+New features were created to better represent property characteristics and improve model performance.
+
+The engineered features were based on business logic and insights from the exploratory analysis.
+
+| Feature | Description |
+|---|---|
+| TotalSF | Total property area combining basement, first floor and second floor areas |
+| HouseAge | Age of the house at the time of sale |
+| RemodAge | Time since the last remodeling |
+| TotalBath | Total number of bathrooms, combining full and half bathrooms |
+| HasGarage | Indicates whether the property has a garage |
+| HasBasement | Indicates whether the property has a basement |
+| HasFireplace | Indicates whether the property has a fireplace |
+| HasPool | Indicates whether the property has a pool |
+
+These features helped the model capture important aspects such as total size, age, functionality and available amenities.
+
+**Main insight:**  
+Feature engineering transformed raw columns into more meaningful predictors, making the model better aligned with real estate valuation logic.
+
+### 7.3 Preprocessing Strategy
+
+The preprocessing pipeline was built using Scikit-Learn's Pipeline and ColumnTransformer.
+
+Different groups of variables were treated according to their meaning:
+
+| Feature Type | Treatment Applied |
+|---|---|
+| Numerical features with structural missing values | Filled with "0" |
+| Numerical features with regular missing values | Filled with median |
+| Binary engineered features | Filled with "0" |
+| Categorical features where missing means absence | Filled with "None" |
+| Other categorical features | Filled with most frequent value |
+| Numerical variables | Scaled with StandardScaler |
+| Categorical variables | Encoded with OneHotEncoder |
+
+This strategy was especially important because many missing values in the Ames Housing dataset represent the absence of a property feature, such as no garage, no basement, no fireplace or no pool.
+
+**Main insight:**  
+The preprocessing step preserved the real meaning of missing values instead of treating all missing data as the same problem.
+
+### 7.4 Baseline Models
+
+Before training more complex models, baseline models were created to define minimum performance references.
+
+The first baseline was a DummyRegressor, which predicts values using a simple statistical rule and does not learn relationships from the data.
+
+A Ridge Regression model was also used as a stronger linear baseline. Ridge Regression was chosen because it is a regularized linear model and handles multicollinearity better than ordinary linear regression.
+
+| Model | Purpose |
+|---|---|
+| Dummy Regressor | Minimum benchmark |
+| Ridge Regression | Regularized linear baseline |
+
+**Main insight:**  
+The baseline models provided a reference point to verify whether more advanced models were actually learning useful patterns from the data.
+
