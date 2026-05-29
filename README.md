@@ -278,9 +278,6 @@ Identifier columns such as **Order** and **PID** were removed because they do no
 
 Based on the EDA, a small number of extreme observations with very large **Gr Liv Area** values were removed from the training set only. The test set was not modified.
 
-**Main insight:**  
-The data preparation step was designed to keep the final evaluation realistic and avoid using information from the test set during model development.
-
 ### 7.2 Feature Engineering
 
 New features were created to better represent property characteristics and improve model performance.
@@ -300,9 +297,6 @@ The engineered features were based on business logic and insights from the explo
 
 These features helped the model capture important aspects such as total size, age, functionality and available amenities.
 
-**Main insight:**  
-Feature engineering transformed raw columns into more meaningful predictors, making the model better aligned with real estate valuation logic.
-
 ### 7.3 Preprocessing Strategy
 
 The preprocessing pipeline was built using Scikit-Learn's Pipeline and ColumnTransformer.
@@ -321,9 +315,6 @@ Different groups of variables were treated according to their meaning:
 
 This strategy was especially important because many missing values in the Ames Housing dataset represent the absence of a property feature, such as no garage, no basement, no fireplace or no pool.
 
-**Main insight:**  
-The preprocessing step preserved the real meaning of missing values instead of treating all missing data as the same problem.
-
 ### 7.4 Baseline Models
 
 Before training more complex models, baseline models were created to define minimum performance references.
@@ -336,9 +327,6 @@ A Ridge Regression model was also used as a stronger linear baseline. Ridge Regr
 |---|---|
 | Dummy Regressor | Minimum benchmark |
 | Ridge Regression | Regularized linear baseline |
-
-**Main insight:**  
-The baseline models provided a reference point to verify whether more advanced models were actually learning useful patterns from the data.
 
 ### 7.5 Model Comparison
 
@@ -362,9 +350,6 @@ The main metric used for comparison was RMSE, because it penalizes larger errors
 
 The Gradient Boosting model achieved the best cross-validation performance and was selected for hyperparameter tuning.
 
-**Main insight:**  
-Tree-based ensemble models performed better than the linear models, suggesting that house prices are influenced by non-linear relationships between property characteristics.
-
 ### 7.6 Hyperparameter Tuning
 
 After the model comparison, the Gradient Boosting model was selected for hyperparameter tuning.
@@ -379,9 +364,6 @@ The goal was to improve predictive performance while keeping the model generaliz
 | Tuning method | Randomized Search with Cross-Validation |
 | Main optimization metric | RMSE |
 | Best Cross-Validation RMSE | $20,315.60 |
-
-**Main insight:**  
-Hyperparameter tuning improved the final model configuration and helped select a stronger version of the Gradient Boosting model.
 
 ### 7.7 Final Model Evaluation
 
@@ -411,9 +393,6 @@ The RMSE was higher than the MAE, which indicates that some larger errors were p
   <img src="images/12-Distribution_of_Prediction_Errors.png" alt="Distribution of Prediction Errors" width="100%">
 </p>
 
-**Main insight:**  
-The final model performed well overall, but larger errors were concentrated in more difficult observations, especially properties with unusual characteristics or higher prices.
-
 ### 7.8 Residual Analysis
 
 Residual analysis was used to better understand the model errors.
@@ -428,9 +407,6 @@ However, a small number of observations had larger errors. These cases are impor
 
 The residual analysis suggests that the model performs well for most properties, but predictions for unusual or high-value houses should be interpreted with more caution.
 
-**Main insight:**  
-The model is reliable for general price estimation within the dataset, but extreme properties remain more challenging to predict.
-
 ### 7.9 Model Interpretation
 
 Feature importance was extracted from the final Gradient Boosting model to understand which variables contributed the most to the predictions.
@@ -442,9 +418,6 @@ The most important features were related to property quality, total area, bathro
 </p>
 
 These results are consistent with the exploratory analysis and with real estate business logic. Larger, newer and higher-quality properties tend to have higher sale prices.
-
-**Main insight:**  
-The model learned patterns that are consistent with the EDA: quality, size, age, garage capacity and finished areas are among the strongest drivers of house prices.
 
 ### 7.10 Saved Artifacts
 
@@ -459,6 +432,3 @@ The saved outputs include:
 | test_predictions.csv | Actual and predicted values for the test set |
 
 Saving these artifacts makes it easier to inspect results, reuse the trained model and continue the project in future stages.
-
-**Main insight:**  
-The modeling workflow produced not only a trained model, but also reusable outputs that support reproducibility and future development.
