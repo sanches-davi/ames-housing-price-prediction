@@ -375,3 +375,140 @@ A Ridge Regression model was also used as a stronger linear baseline. Ridge Regr
 **Main insight:**  
 The baseline models provided a reference point to verify whether more advanced models were actually learning useful patterns from the data.
 
+### 7.5 Model Comparison
+
+Several regression models were trained and compared using cross-validation.
+
+The models tested included both linear and tree-based approaches:
+
+| Model | Type |
+|---|---|
+| Ridge Regression | Regularized linear model |
+| ElasticNet | Regularized linear model |
+| Random Forest | Bagging-based ensemble model |
+| Extra Trees | Randomized tree-based ensemble model |
+| Gradient Boosting | Boosting-based ensemble model |
+
+The main metric used for comparison was RMSE, because it penalizes larger errors more heavily. This is important in real estate pricing, where large prediction errors can have a significant business impact.
+
+<p align="center">
+  <img src="images/10-Model_Comparison_RMSE.png" alt="Model Comparison RMSE" width="100%">
+</p>
+
+The Gradient Boosting model achieved the best cross-validation performance and was selected for hyperparameter tuning.
+
+**Main insight:**  
+Tree-based ensemble models performed better than the linear models, suggesting that house prices are influenced by non-linear relationships between property characteristics.
+
+### 7.6 Hyperparameter Tuning
+
+After the model comparison, the Gradient Boosting model was selected for hyperparameter tuning.
+
+The tuning process was performed using **RandomizedSearchCV**, which tests multiple combinations of hyperparameters using cross-validation.
+
+The goal was to improve predictive performance while keeping the model generalizable.
+
+| Item | Result |
+|---|---:|
+| Selected model | Gradient Boosting |
+| Tuning method | Randomized Search with Cross-Validation |
+| Main optimization metric | RMSE |
+| Best Cross-Validation RMSE | $20,315.60 |
+
+**Main insight:**  
+Hyperparameter tuning improved the final model configuration and helped select a stronger version of the Gradient Boosting model.
+
+### 7.7 Final Model Evaluation
+
+The final tuned Gradient Boosting model was evaluated on the test set.
+
+The test set was not used during preprocessing fitting, model comparison or hyperparameter tuning. This made the final evaluation a better estimate of how the model performs on unseen data.
+
+The final results were:
+
+| Metric | Result |
+|---|---:|
+| MAE | $13,549.08 |
+| RMSE | $26,044.03 |
+| R² | 0.9154 |
+
+The model achieved strong predictive performance, explaining approximately 91.5% of the variation in house sale prices on the test set.
+
+The MAE shows that, on average, the model predictions were approximately $13.5k away from the actual sale prices.
+
+The RMSE was higher than the MAE, which indicates that some larger errors were present. This is expected in real estate data, where unusual or high-value properties can be harder to predict accurately.
+
+<p align="center">
+  <img src="images/11-Actual_vs_Predicted.png" alt="Actual vs Predicted" width="100%">
+</p>
+
+<p align="center">
+  <img src="images/12-Distribution_of_Prediction_Errors.png" alt="Distribution of Prediction Errors" width="100%">
+</p>
+
+**Main insight:**  
+The final model performed well overall, but larger errors were concentrated in more difficult observations, especially properties with unusual characteristics or higher prices.
+
+### 7.8 Residual Analysis
+
+Residual analysis was used to better understand the model errors.
+
+Most residuals were concentrated around zero, which indicates that the model predictions were generally close to the actual sale prices.
+
+However, a small number of observations had larger errors. These cases are important because they show where the model has more difficulty generalizing.
+
+<p align="center">
+  <img src="images/13-Residual_Plot.png" alt="Residual Plot" width="100%">
+</p>
+
+The residual analysis suggests that the model performs well for most properties, but predictions for unusual or high-value houses should be interpreted with more caution.
+
+**Main insight:**  
+The model is reliable for general price estimation within the dataset, but extreme properties remain more challenging to predict.
+
+### 7.9 Model Interpretation
+
+Feature importance was extracted from the final Gradient Boosting model to understand which variables contributed the most to the predictions.
+
+The most important features were related to property quality, total area, bathrooms, house age, garage capacity and basement characteristics.
+
+<p align="center">
+  <img src="images/14-Feature_Importance.png" alt="Feature Importance" width="100%">
+</p>
+
+The top predictive features were:
+
+| Feature | Interpretation |
+|---|---|
+| Overall Qual | Overall material and finish quality |
+| TotalSF | Total property size |
+| TotalBath | Total number of bathrooms |
+| HouseAge | Age of the house |
+| Garage Cars | Garage capacity |
+| Lot Area | Lot size |
+| Bsmt Qual_Ex | Excellent basement quality |
+| Kitchen Qual_Ex | Excellent kitchen quality |
+| BsmtFin SF 1 | Finished basement area |
+| Gr Liv Area | Above-ground living area |
+
+These results are consistent with the exploratory analysis and with real estate business logic. Larger, newer and higher-quality properties tend to have higher sale prices.
+
+**Main insight:**  
+The model learned patterns that are consistent with the EDA: quality, size, age, garage capacity and finished areas are among the strongest drivers of house prices.
+
+### 7.10 Saved Artifacts
+
+After the final evaluation, the main modeling artifacts were saved.
+
+The saved outputs include:
+
+| Artifact | Description |
+|---|---|
+| final_gradient_boosting_model.pkl | Final trained Gradient Boosting pipeline |
+| final_model_metrics.csv | Final test performance metrics |
+| test_predictions.csv | Actual and predicted values for the test set |
+
+Saving these artifacts makes it easier to inspect results, reuse the trained model and continue the project in future stages.
+
+**Main insight:**  
+The modeling workflow produced not only a trained model, but also reusable outputs that support reproducibility and future development.
