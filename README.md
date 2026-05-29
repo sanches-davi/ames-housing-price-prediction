@@ -476,21 +476,6 @@ The most important features were related to property quality, total area, bathro
   <img src="images/14-Feature_Importance.png" alt="Feature Importance" width="100%">
 </p>
 
-The top predictive features were:
-
-| Feature | Interpretation |
-|---|---|
-| Overall Qual | Overall material and finish quality |
-| TotalSF | Total property size |
-| TotalBath | Total number of bathrooms |
-| HouseAge | Age of the house |
-| Garage Cars | Garage capacity |
-| Lot Area | Lot size |
-| Bsmt Qual_Ex | Excellent basement quality |
-| Kitchen Qual_Ex | Excellent kitchen quality |
-| BsmtFin SF 1 | Finished basement area |
-| Gr Liv Area | Above-ground living area |
-
 These results are consistent with the exploratory analysis and with real estate business logic. Larger, newer and higher-quality properties tend to have higher sale prices.
 
 **Main insight:**  
