@@ -10,6 +10,14 @@
 
 ---
 
+## Quick Results
+
+| Final model | Test MAE | Test RMSE | Test R² | Best CV RMSE | Main metric |
+|---|---:|---:|---:|---:|---|
+| Tuned Gradient Boosting | $13,549.08 | $26,044.03 | 0.9154 | $20,315.60 | RMSE |
+
+---
+
 ## 1. Project Description
 
 This project is my implementation of a machine learning workflow for predicting house sale prices using the Ames Housing dataset.
@@ -23,12 +31,6 @@ I organized the work into two main notebooks. The first notebook focuses on EDA,
 After comparing multiple models with cross-validation, Gradient Boosting was selected as the final model. It provided the best balance between predictive performance and business interpretation, since its most important features were aligned with what would be expected in the real estate market: overall quality, total property size, number of bathrooms, house age, garage capacity and quality-related variables.
 
 The final model, metrics and test predictions were saved as artifacts so the results can be reviewed and the project can be extended later.
-
-### Quick Results
-
-| Final model | Test MAE | Test RMSE | Test R² | Best CV RMSE | Main metric |
-|---|---:|---:|---:|---:|---|
-| Tuned Gradient Boosting | $13,549.08 | $26,044.03 | 0.9154 | $20,315.60 | RMSE |
 
 ---
 
