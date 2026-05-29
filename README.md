@@ -26,14 +26,9 @@ The final model, metrics and test predictions were saved as artifacts so the res
 
 ### Quick Results
 
-| Item | Result |
-|---|---:|
-| Final model | Tuned Gradient Boosting |
-| Test MAE | $13,549.08 |
-| Test RMSE | $26,044.03 |
-| Test R² | 0.9154 |
-| Best CV RMSE | $20,315.60 |
-| Main metric | RMSE |
+| Final model | Test MAE | Test RMSE | Test R² | Best CV RMSE | Main metric |
+|---|---:|---:|---:|---:|---|
+| Tuned Gradient Boosting | $13,549.08 | $26,044.03 | 0.9154 | $20,315.60 | RMSE |
 
 ---
 
