@@ -135,52 +135,17 @@ In the initial data inspection, no duplicated rows were found and the target var
 
 The dataset contains both numerical and categorical variables, which makes preprocessing an important part of the project. Numerical features require imputation and scaling, while categorical features require missing value treatment and encoding before being used by machine learning models.
 
-<div align="center">
-
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Dataset</td>
-    <td>Ames Housing</td>
-  </tr>
-  <tr>
-    <td>Rows</td>
-    <td>2,930</td>
-  </tr>
-  <tr>
-    <td>Columns</td>
-    <td>82</td>
-  </tr>
-  <tr>
-    <td>Target variable</td>
-    <td>SalePrice</td>
-  </tr>
-  <tr>
-    <td>Problem type</td>
-    <td>Supervised regression</td>
-  </tr>
-  <tr>
-    <td>Numerical columns</td>
-    <td>39, including the target variable</td>
-  </tr>
-  <tr>
-    <td>Categorical columns</td>
-    <td>43</td>
-  </tr>
-  <tr>
-    <td>Duplicated rows</td>
-    <td>0</td>
-  </tr>
-  <tr>
-    <td>Missing values in target</td>
-    <td>0</td>
-  </tr>
-</table>
-
-</div>
+| Item | Description |
+|---|---|
+| Dataset | Ames Housing |
+| Rows | 2,930 |
+| Columns | 82 |
+| Target variable | SalePrice |
+| Problem type | Supervised regression |
+| Numerical columns | 39, including the target variable |
+| Categorical columns | 43 |
+| Duplicated rows | 0 |
+| Missing values in target | 0 |
 
 ---
 
