@@ -24,6 +24,17 @@ After comparing multiple models with cross-validation, Gradient Boosting was sel
 
 The final model, metrics and test predictions were saved as artifacts so the results can be reviewed and the project can be extended later.
 
+### Quick Results
+
+| Item | Result |
+|---|---:|
+| Final model | Tuned Gradient Boosting |
+| Test MAE | $13,549.08 |
+| Test RMSE | $26,044.03 |
+| Test R² | 0.9154 |
+| Best CV RMSE | $20,315.60 |
+| Main metric | RMSE |
+
 ---
 
 ## 2. Project Stack
