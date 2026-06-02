@@ -381,11 +381,9 @@ The test set was not used during preprocessing fitting, model comparison or hype
 
 The final results were:
 
-| Metric | Result |
-|---|---:|
-| MAE | $13,549.08 |
-| RMSE | $26,044.03 |
-| R² | 0.9154 |
+| MAE | RMSE | R² |
+|---:|---:|---:|
+| $13,549.08 | $26,044.03 | 0.9154 |
 
 The model achieved strong predictive performance, explaining approximately 91.5% of the variation in house sale prices on the test set.
 
@@ -440,3 +438,31 @@ The saved outputs include:
 | test_predictions.csv | Actual and predicted values for the test set |
 
 Saving these artifacts makes it easier to inspect results, reuse the trained model and continue the project in future stages.
+
+---
+
+## 8. Final Conclusions
+
+This project was a complete end-to-end machine learning workflow for predicting house sale prices using the Ames Housing dataset.
+
+The main objective was not only to build a model with good predictive performance, but also to understand the data behind the predictions. For that reason, I focused on exploring the target variable, analyzing numerical and categorical features, understanding missing values, identifying outliers, creating meaningful features and comparing different regression models before selecting the final solution.
+
+During the exploratory analysis, it became clear that house prices are influenced by a combination of factors. Property quality, total area, neighborhood, garage capacity, basement characteristics, number of bathrooms and house age were among the most relevant aspects related to SalePrice. These findings helped guide the feature engineering and preprocessing decisions used later in the modeling stage.
+
+In the machine learning stage, I tested different regression models using cross-validation. The Gradient Boosting model achieved the best validation performance and was selected for hyperparameter tuning. After tuning, the final model was evaluated on the untouched test set, which helped provide a more realistic view of how it would perform on unseen data.
+
+The final results were strong:
+
+| MAE | RMSE | R² | Best Cross-Validation RMSE |
+|---:|---:|---:|---:|
+| $13,549.08 | $26,044.03 | 0.9154 | $20,315.60 |
+
+The final R² score shows that the model was able to explain approximately 91.5% of the variation in house sale prices on the test set. The MAE indicates that, on average, the predictions were around $13.5k away from the actual sale prices.
+
+The residual analysis also showed that most predictions were close to the real values, although some larger errors were still present. This is expected in a real estate problem, especially because unusual or high-value properties can be harder to predict accurately using only the available dataset features.
+
+The feature importance results were consistent with the insights found during the EDA. The model placed strong importance on variables related to overall quality, total property size, bathrooms, house age, garage capacity and basement characteristics. This was a positive result because the model behavior aligned with real estate business logic.
+
+Overall, this project helped me practice and connect several important parts of a real data science workflow: business understanding, exploratory data analysis, data cleaning, feature engineering, preprocessing, model comparison, hyperparameter tuning, final evaluation and model interpretation.
+
+At this stage, the project is complete as a notebook-based machine learning portfolio project. The final model, metrics and predictions were saved as artifacts, making the work reproducible and easier to review or extend in the future.
